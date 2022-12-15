@@ -6,7 +6,7 @@ cough = None
 # ОРВИ, мигрень, Ковид, Туберкулез
 diseases_list = [[True, True, True, False],
  [True, False, False, False],
- [False, True, True, False],
+ [False, True, False, True],
  [False, True, True, True]]
 
 def get_questions_test():
@@ -55,6 +55,7 @@ def get_questions(question_number):
             cough = True
         else:
             cough = False
+        diseases_definition()
 
 
 def diseases_definition_test():
@@ -67,9 +68,24 @@ def diseases_definition_test():
 
 
 def diseases_definition():
-    pass
+    symptom_list = []
+    symptom_list.extend((headache, high_temperature, muscle_pain, cough))
+    diseases_number = -1
+    for i in range(len(diseases_list)):
+        if diseases_list[i] == symptom_list:
+            diseases_number = i
+            break
+
+    if diseases_number == -1:
+        print("По вашим симптомам нельзя точно определить заболевание, требуется дополнительынй осмотр")
+    if diseases_number == 0:
+        print("Судя по вашим симптомам (головная боль, повышенная температура, боль в мышцах) ваш диагноз - ОРВИ")
+    if diseases_number == 1:
+        print("Судя по вашим симптомам (головная боль) ваш диагноз - Мигрень")
+    if diseases_number == 2:
+        print("Судя по вашим симптомам (повышенная температура, кашель) ваш диагноз - Covid19")
+    if diseases_number == 3:
+        print("Судя по вашим симптомам (повышенная температура, боль в мышцах, кашель) ваш диагноз - Туберкулез")
 
 
 get_questions(1)
-
-diseases_definition_test()
