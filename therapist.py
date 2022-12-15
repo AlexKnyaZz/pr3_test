@@ -3,6 +3,12 @@ high_temperature = None
 muscle_pain = None
 cough = None
 
+# ОРВИ, мигрень, Ковид, Туберкулез
+diseases_list = [[True, True, True, False],
+ [True, False, False, False],
+ [False, True, True, False],
+ [False, True, True, True]]
+
 def get_questions_test():
     global headache
     print("Вы чувствуете головную боль? (1 - да, 2 - нет)")
@@ -51,8 +57,19 @@ def get_questions(question_number):
             cough = False
 
 
+def diseases_definition_test():
+    test_list = [True, False, False, False]
+    for i in range(len(diseases_list)):
+        print(diseases_list[i])
+        print(test_list)
+        if diseases_list[i] == test_list:
+            print("Судя по симптомам у вас мигрень")
+
+
+def diseases_definition():
+    pass
+
+
 get_questions(1)
-print(headache)
-print(high_temperature)
-print(muscle_pain)
-print(cough)
+
+diseases_definition_test()
